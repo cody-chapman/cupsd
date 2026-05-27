@@ -7,10 +7,10 @@ LABEL org.opencontainers.image.authors="$MAINTAINER_LABEL" \
       org.opencontainers.image.description="Docker image including CUPS print server and printing drivers based on UBI 9 and Rocky Linux repositories."
 
 # 1. Inject Rocky Linux 9 repositories to get full access to printer drivers and filters
-RUN dnf install -y https://dl.rockylinux.org/pub/rocky/9/BaseOS/x86_64/os/Packages/r/rocky-release-9.5-1.1.el9.noarch.rpm \
-                   https://dl.rockylinux.org/pub/rocky/9/BaseOS/x86_64/os/Packages/r/rocky-repos-9.5-1.1.el9.noarch.rpm \
-                   https://dl.rockylinux.org/pub/rocky/9/BaseOS/x86_64/os/Packages/r/rocky-gpg-keys-9.5-1.1.el9.noarch.rpm \
-    && dnf install -y epel-release
+#RUN dnf install -y https://dl.rockylinux.org/pub/rocky/9/BaseOS/x86_64/os/Packages/r/rocky-release-9.5-1.1.el9.noarch.rpm \
+#                   https://dl.rockylinux.org/pub/rocky/9/BaseOS/x86_64/os/Packages/r/rocky-repos-9.5-1.1.el9.noarch.rpm \
+#                   https://dl.rockylinux.org/pub/rocky/9/BaseOS/x86_64/os/Packages/r/rocky-gpg-keys-9.5-1.1.el9.noarch.rpm \
+#    && dnf install -y epel-release
 
 # 2. Install fundamental tools, CUPS, and available printer drivers/backends
 # Note: RHEL/Rocky packages combine many individual printer drivers into comprehensive suites 
@@ -29,7 +29,6 @@ RUN dnf update -y && \
         foomatic-db-ppds \
         gutenprint \
         gutenprint-cups \
-        hpijs \
         hplip \
         samba-client \
         avahi \
